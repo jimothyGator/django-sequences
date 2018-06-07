@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import connections, router, transaction
 
 
@@ -12,7 +14,7 @@ UPSERT_QUERY = """
 
 def get_next_value(
         sequence_name='default', initial_value=1, reset_value=None,
-        *, nowait=False, using=None):
+        nowait=False, using=None):
     """
     Return the next value for a given sequence.
 
@@ -28,8 +30,8 @@ def get_next_value(
 
     connection = connections[using]
 
-    if (getattr(connection, 'pg_version', 0) >= 90500
-            and reset_value is None and not nowait):
+    if (getattr(connection, 'pg_version', 0) >= 90500 and
+            reset_value is None and not nowait):
 
         # PostgreSQL ≥ 9.5 supports "upsert".
 

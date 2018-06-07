@@ -153,6 +153,11 @@ two databases will have independent counters in each database.
 Changelog
 =========
 
+jimothyGator Fork
+-----------------
+
+* Restore Python 2.x support
+
 2.2
 ---
 
